@@ -25,4 +25,8 @@ return [
     'log_write'    => [],
     // 应用结束
     'app_end'      => [],
+    // 任务失败统一回调,有四种定义方式
+    'queue_failed' => [
+        ['app\\common\\behavior\\LogFailedJob', 'run'],
+    ]
 ];
