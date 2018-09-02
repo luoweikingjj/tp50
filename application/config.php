@@ -9,6 +9,8 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+use think\Env;
+
 return [
     // +----------------------------------------------------------------------
     // | 应用设置
@@ -191,13 +193,16 @@ return [
 
     'cache'                  => [
         // 驱动方式
-        'type'   => 'File',
+        'type'   => 'Redis',
         // 缓存保存目录
         'path'   => CACHE_PATH,
         // 缓存前缀
-        'prefix' => '',
+        'prefix' => 'tp50_',
         // 缓存有效期 0表示永久缓存
-        'expire' => 0,
+        'expire' => 86400,
+        'host'        => Env::get('redis_host'),     // redis 主机ip
+        'port'        => Env::get('redis_post'),            // redis 端口
+        'password'    => Env::get('redis_password'),      // redis 密码
     ],
 
     // +----------------------------------------------------------------------
