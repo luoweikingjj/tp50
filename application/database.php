@@ -9,25 +9,27 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+use think\Env;
+
 return [
     // 数据库类型
-    'type'            => 'mysql',
+    'type'            => Env::get('db_type', 'mysql'),
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => Env::get('db_hostname', '127.0.0.1'),
     // 数据库名
-    'database'        => '',
+    'database'        => Env::get('db_database', 'tp50'),
     // 用户名
-    'username'        => 'root',
+    'username'        => Env::get('db_username', 'homestead'),
     // 密码
-    'password'        => '',
+    'password'        => Env::get('db_password', 'secret'),
     // 端口
-    'hostport'        => '',
+    'hostport'        => Env::get('db_port', '3306'),
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
     'params'          => [],
-    // 数据库编码默认采用utf8
-    'charset'         => 'utf8',
+    // 数据库编码默认采用utf8mb4
+    'charset'         => 'utf8mb4',
     // 数据库表前缀
     'prefix'          => '',
     // 数据库调试模式
@@ -45,7 +47,7 @@ return [
     // 是否严格检查字段是否存在
     'fields_strict'   => true,
     // 数据集返回类型
-    'resultset_type'  => 'array',
+    'resultset_type'  => 'collection',
     // 自动写入时间戳字段
     'auto_timestamp'  => false,
     // 时间字段取出后的默认时间格式
